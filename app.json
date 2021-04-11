@@ -1,0 +1,12 @@
+{
+  "name": "rnf-realtimechat",
+  "displayName": "rnf-realtimechat",
+  "expo": {
+    "name": "rnf-realtimechat",
+    "slug": "rnf-realtimechat",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
