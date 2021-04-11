@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "594324939161",
+    "firebase_url": "https://rnf-realtime-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "rnf-realtime",
+    "storage_bucket": "rnf-realtime.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594324939161:android:94db03f538b211ab83f308",
+        "android_client_info": {
+          "package_name": "com.rnfrealtimechat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594324939161-3li89fmdnqlpe5o5rj5v0j9e8a3b3rs3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY1lIG5FCjiihQGXVoTVD5U0hXrmhnmTw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594324939161-3li89fmdnqlpe5o5rj5v0j9e8a3b3rs3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
