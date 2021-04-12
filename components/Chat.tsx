@@ -2,32 +2,38 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { GiftedChat } from "react-native-gifted-chat";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import firebaseSDK from "../config/firebaseSDK";
+import chatUtils from "../config/chatUtils";
 
 const Chat = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
-
   const [users, setUsers] = useState([]);
   const [messages, setMessages] = useState([]);
 
-  console.log(route);
-  console.log(navigation);
+  //console.log("route data", route);
 
   useEffect(() => {
-    firebaseSDK.refOn();
-    return () => {
-      firebaseSDK.refOff();
-    };
+    return () => {};
   }, []);
 
-  return <GiftedChat messages={messages} onSend={firebaseSDK.send} />;
+  return (
+    <>
+      <View style={styles.online}>
+        <Text>Hello</Text>
+      </View>
+      <GiftedChat messages={messages} />
+    </>
+  );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  online: {
+    height: 75,
+    backgroundColor: "#ff00ff",
     alignItems: "center",
     justifyContent: "center",
   },
