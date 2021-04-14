@@ -2,6 +2,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import auth from "@react-native-firebase/auth";
 import React, { useState } from "react";
 import { Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
+import database from "@react-native-firebase/database";
 
 const ChatName = () => {
   const route = useRoute();
@@ -16,11 +17,18 @@ const ChatName = () => {
       return;
     }
 
-    await auth().currentUser?.updateProfile({
-      displayName: user.userName,
-    });
+    try {
+      await auth().currentUser?.updateProfile({
+        displayName: user.userName,
+      });
 
-    //console.log("Current User with display name", auth().currentUser);
+      database().ref(`users/${auth().currentUser?.uid}`).set({
+        displayName: auth().currentUser?.displayName,
+        online: true,
+      });
+    } catch (e) {
+      alert("Could not push user to firebase, Try again!");
+    }
 
     navigation.navigate("Chat");
   };

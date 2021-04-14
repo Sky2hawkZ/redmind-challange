@@ -1,5 +1,5 @@
 //React
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -16,10 +16,11 @@ const Login = () => {
 
   const [online, setOnline] = useState(false);
 
+  useEffect(() => {}, [online]);
+
   const onPressLogin = async () => {
     try {
       await auth().signInAnonymously();
-      console.log(auth().currentUser);
       navigation.navigate("ChatName");
     } catch (e) {
       if (e === "auth/wrong-password") {
@@ -41,11 +42,6 @@ const Login = () => {
       alert("I don't know how you're here, but bad!");
       return;
     }
-  };
-
-  const checkUser = () => {
-    console.log(online);
-    console.log("Logged in as:", auth().currentUser);
   };
 
   useFocusEffect(() => {
