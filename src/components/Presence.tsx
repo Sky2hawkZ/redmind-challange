@@ -1,23 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, SafeAreaView, Image } from "react-native";
 import database from "@react-native-firebase/database";
-import { useList } from "react-firebase-hooks/database";
 
 interface uProps {
   displayName: string;
   online: false;
+  uid: string | null;
 }
 
 const Presence = () => {
-  const [snapshots, loadingSnapshots, error] = useList(database().ref("users"));
+  const [users, setUsers] = useState<uProps[]>([]);
+  useEffect(() => {
+    const onValueChange = database()
+      .ref(`/users`)
+      .on("value", (snapshot) => {
+        const users: Array<uProps> = [];
+        snapshot.forEach((childNodes) => {
+          const key = { uid: childNodes.key };
+          const user = childNodes.val();
+          const mergedUser = { ...user, ...key };
+          users.push(mergedUser);
+          return user;
+        });
+        setUsers(users);
+      });
 
+    // Stop listening for updates when no longer required
+    return () => database().ref(`/users`).off("value", onValueChange);
+  }, []);
   return (
     <SafeAreaView style={styles.online}>
-      {snapshots &&
-        snapshots.map((snapshot) => {
-          let user: uProps = snapshot.val();
+      {users &&
+        users.map((user) => {
           return (
-            <View style={styles.userIcon} key={snapshot.key}>
+            <View style={styles.userIcon} key={user.uid}>
               <Text style={styles.userText}>{user.displayName}</Text>
               {user.online ? (
                 <Image

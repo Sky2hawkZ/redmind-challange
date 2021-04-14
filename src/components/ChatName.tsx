@@ -40,8 +40,8 @@ const ChatName = () => {
         onChangeText={(username) => setUser({ userName: username })}
         placeholder="ChatName"
       />
-      <TouchableOpacity style={styles.buttonText} onPress={onNameRegistration}>
-        <Text>Confirm Username</Text>
+      <TouchableOpacity style={styles.button} onPress={onNameRegistration}>
+        <Text style={styles.buttonText}>Confirm Username</Text>
       </TouchableOpacity>
     </>
   );
@@ -64,11 +64,15 @@ const styles = StyleSheet.create({
     borderBottomColor: "#111111",
     fontSize: 16,
   },
-  buttonText: {
+  button: {
     alignItems: "center",
-    backgroundColor: "#DDDDDD",
+    backgroundColor: "#2196f3",
+    borderRadius: 25,
     padding: 10,
     margin: 5,
     fontSize: 42,
+  },
+  buttonText: {
+    color: "#FFFFFF",
   },
 });

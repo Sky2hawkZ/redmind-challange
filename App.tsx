@@ -2,16 +2,17 @@ import "react-native-gesture-handler";
 import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
-import { navigationRef } from "./components/NavigationRef";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet, Text } from "react-native";
 import auth from "@react-native-firebase/auth";
 import database from "@react-native-firebase/database";
 
-import Chat from "./components/Chat";
-import Login from "./components/Login";
-import ChatName from "./components/ChatName";
-import * as RootNavigation from "./components/NavigationRef";
+import { navigationRef } from "./src/components/NavigationRef";
+import Chat from "./src/components/Chat";
+import Login from "./src/components/Login";
+import ChatName from "./src/components/ChatName";
+import * as RootNavigation from "./src/components/NavigationRef";
+import Signup from "./src/components/Signup";
 
 const Stack = createStackNavigator();
 
@@ -20,10 +21,14 @@ function App() {
 
   const logOut = async () => {
     try {
-      database().ref(`/users/${auth().currentUser?.uid}`).remove();
-      await auth().currentUser?.delete();
+      database().ref(`/users/${auth().currentUser?.uid}`).update({
+        online: false,
+      });
+      await auth().signOut();
       RootNavigation.navigate("Login");
-    } catch (e) {}
+    } catch (e) {
+      alert(`Error: ${e}`);
+    }
   };
 
   const goBack = () => {
@@ -34,6 +39,7 @@ function App() {
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator>
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen
           name="ChatName"
           component={ChatName}
@@ -66,7 +72,6 @@ const styles = StyleSheet.create({
   button: {
     alignItems: "center",
     backgroundColor: "#2196f3",
-    color: "#FFFFFF",
     borderRadius: 25,
     padding: 10,
     margin: 5,

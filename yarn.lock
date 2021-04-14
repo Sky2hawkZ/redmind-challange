@@ -4526,7 +4526,7 @@
     "locate-path" "^6.0.0"
     "path-exists" "^4.0.0"
 
-"firebase@^8.3.3", "firebase@>= 8.0.0":
+"firebase@^8.3.3":
   "integrity" "sha512-eRkW7bD25aevlGwtCEsP53xBo5/Fi4wkxvfvmDW6R2/oSHjy+hVLkQILP4kQFFXgFL0LBjxIPOchXoQ5MUbTCA=="
   "resolved" "https://registry.npmjs.org/firebase/-/firebase-8.3.3.tgz"
   "version" "8.3.3"
@@ -7501,11 +7501,6 @@
     "prop-types" "^15.6.2"
     "scheduler" "^0.19.1"
 
-"react-firebase-hooks@^3.0.3":
-  "integrity" "sha512-g66N21BTzuYWmQhWiTkBPwkrHcK5wNVpq/xkaAyWWDOl3zo9Yx/Q3nG+yVlj966Xi3E5ABC7a/Efk2LNAzzGPA=="
-  "resolved" "https://registry.npmjs.org/react-firebase-hooks/-/react-firebase-hooks-3.0.3.tgz"
-  "version" "3.0.3"
-
 "react-is@^16.12.0", "react-is@^16.13.0", "react-is@^16.7.0", "react-is@^16.8.1", "react-is@^16.8.4", "react-is@^16.8.6":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
@@ -7680,7 +7675,7 @@
   "resolved" "https://registry.npmjs.org/react-timer-mixin/-/react-timer-mixin-0.13.4.tgz"
   "version" "0.13.4"
 
-"react@*", "react@^16.0", "react@^16.0.0", "react@^16.13.1", "react@^16.8.0 || ^17.0.0", "react@>= 16.8.0", "react@>=16.3.0", "react@>=16.5.1", "react@16.13.1":
+"react@*", "react@^16.0", "react@^16.0.0", "react@^16.13.1", "react@^16.8.0 || ^17.0.0", "react@>=16.3.0", "react@>=16.5.1", "react@16.13.1":
   "integrity" "sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w=="
   "resolved" "https://registry.npmjs.org/react/-/react-16.13.1.tgz"
   "version" "16.13.1"
