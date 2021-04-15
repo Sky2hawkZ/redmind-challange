@@ -52,11 +52,11 @@ const Chat = () => {
         {...props}
         wrapperStyle={{
           left: {
-            backgroundColor: "#6646ee",
+            backgroundColor: "#2196f3",
           },
         }}
         textStyle={{
-          right: {
+          left: {
             color: "#fff",
           },
         }}

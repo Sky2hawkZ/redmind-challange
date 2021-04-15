@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, SafeAreaView, Image } from "react-native";
+import {
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  Image,
+  ScrollView,
+} from "react-native";
 import database from "@react-native-firebase/database";
 
 interface uProps {
@@ -33,7 +39,11 @@ const Presence = () => {
       {users &&
         users.map((user) => {
           return (
-            <View style={styles.userIcon} key={user.uid}>
+            <ScrollView
+              style={styles.userIcon}
+              showsHorizontalScrollIndicator={false}
+              key={user.uid}
+            >
               <Text style={styles.userText}>{user.displayName}</Text>
               {user.online ? (
                 <Image
@@ -46,7 +56,7 @@ const Presence = () => {
                   source={require("../assets/offline.png")}
                 />
               )}
-            </View>
+            </ScrollView>
           );
         })}
     </SafeAreaView>
