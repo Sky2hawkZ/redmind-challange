@@ -1,7 +1,13 @@
 //NPM Imports
 import React, { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
-import { Bubble, BubbleProps, GiftedChat } from "react-native-gifted-chat";
+import {
+  Bubble,
+  BubbleProps,
+  GiftedChat,
+  Time,
+  TimeProps,
+} from "react-native-gifted-chat";
 
 //Local Imports
 import auth from "@react-native-firebase/auth";
@@ -64,6 +70,19 @@ const Chat = () => {
     );
   };
 
+  const renderTime = (props: TimeProps) => {
+    return (
+      <Time
+        {...props}
+        timeTextStyle={{
+          left: {
+            color: "#fff",
+          },
+        }}
+      />
+    );
+  };
+
   return (
     <>
       <Presence />
@@ -75,6 +94,7 @@ const Chat = () => {
           name: auth().currentUser.displayName,
         }}
         renderBubble={renderBubble}
+        renderTime={renderTime}
         placeholder="Type your message here..."
         alwaysShowSend
         showUserAvatar
@@ -84,14 +104,5 @@ const Chat = () => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
 
 export default Chat;
